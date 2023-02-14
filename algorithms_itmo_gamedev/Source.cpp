@@ -1,9 +1,12 @@
 ﻿#include <iostream>;
 #include <fstream>;
+#include <string>;
 
 using namespace std;
 
 unsigned short age = 1, population = 100, wheat = 2800, acres = 1000;
+bool isCorrect = false;
+string input = "";
 
 void baseReport() {
 	cout << "Год: " << age << endl;
@@ -12,9 +15,52 @@ void baseReport() {
 	cout << "Кол-во акров для посевов: " << acres << endl;
 }
 
+void toDo() {
+    short acreCost = rand() % 10 + 17;
+    while (!isCorrect)              
+    {
+        try {
+            cout << "Акров к покупке/продаже (стоимость акра "<<acreCost<<"): ";
+            cin >> input;
+            if (stoi(input) == 0) {
+                isCorrect = true;
+                break;
+            }
+
+            if (input[0] == '-') {
+                if (abs(stoi(input)) > acres) {
+                    cout << "У вас не хватает акров" << endl;
+                    break;
+                }
+            }
+
+            short cost = acreCost * stoi(input);
+            if (cost>wheat) {
+                cout << "У вас не хватает пшеницы"<<endl;
+                break;
+            }
+            wheat -= cost;
+
+            acres += stoi(input);
+            isCorrect = true;
+        }
+        catch (exception e) {
+            cout << "Ошибка ввода или неожиданный результат" << endl;
+        }
+        
+    }
+    input = "";
+    isCorrect = false;
+}
+
 int main() {
 	setlocale(LC_ALL, "Russian");
-	baseReport();
-	while(true){}
+    srand(time(NULL));
+	while(true){
+        cout << endl;
+
+        baseReport();
+        toDo();
+    }
 	return 0;
 }
