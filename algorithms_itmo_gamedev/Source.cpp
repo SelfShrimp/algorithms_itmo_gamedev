@@ -159,9 +159,10 @@ void doom() {
 
 void gameFinsihed() {
 	cout << "Вы продержались 10 лет!"<<endl;
+	aveDeath /= 10;
 	cout << "Средняя смертность: " << aveDeath << endl;
 	short acresPerPeople = acres / population;
-	cout << "Acres per sitizen: " << acresPerPeople << endl;
+	cout << "Акров на жителя: " << acresPerPeople << endl;
 	if (aveDeath > 0.33 && acresPerPeople < 7.0) cout << "Плохо";
 	else if (aveDeath > 0.1 && acresPerPeople < 9.0) cout << "Нормально";
 	else if (aveDeath > 0.03 && acresPerPeople < 10.0) cout << "Хорошо";
