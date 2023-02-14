@@ -170,18 +170,46 @@ void gameFinsihed() {
 	cout << endl;
 }
 
+void save() {
+	ofstream save;
+	save.open("save.txt");
+	save << age << ' ' << population << ' ' << acres << ' ' << wheat;
+	save.close();
+}
+
+void load() {
+	ifstream load;
+	load.open("save.txt");
+	if (load)                                                                      
+	{                                                                               
+		isCorrect = false;
+		while (!isCorrect)
+		{
+			cout << "Желаете загрузить сохранение?"<<endl;
+			cin >> input;
+			if (input == "yes" || input == "no")
+			{
+				isCorrect = true;
+				if (input == "yes") load >> age >> population >> acres >> wheat;
+			}
+		}
+	}
+	load.close();
+}
+
 int main() {
 	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
+	load();
 	while (age<10) {
 		cout << endl;
-
+		save();
 		baseReport();
 		toDo();
 		resultPerYear();
 		if ((float)death / population >= 0.45f || population <= 0) {
 			cout << "Из-за вашей некомпетентности в управлении, народ устроил бунт, и изгнал вас их города.Теперь вы вынуждены влачить жалкое существование в изгнании" << endl;
-			while(true){}
+			system("pause");
 			return 0;
 		}
 		newPeople();
@@ -189,6 +217,6 @@ int main() {
 		age++;
 	}
 	gameFinsihed();
-	while(true){}
+	system("pause");
 	return 0;
 }
