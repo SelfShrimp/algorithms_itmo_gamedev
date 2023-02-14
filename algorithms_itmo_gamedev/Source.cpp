@@ -195,6 +195,7 @@ void load() {
 		}
 	}
 	load.close();
+	isCorrect = false;
 }
 
 int main() {
