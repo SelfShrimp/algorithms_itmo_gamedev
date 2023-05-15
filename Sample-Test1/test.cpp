@@ -1,5 +1,6 @@
 ﻿#include "gtest/gtest.h"
-
+#include <iostream>
+#include <windows.h>
 #define MY_ARRAY_H
 #define DEFAULT_CAPACITY 8
 #define MEMORY_MULT 2
