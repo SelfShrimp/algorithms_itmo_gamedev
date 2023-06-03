@@ -116,7 +116,7 @@ TEST(QuickSort, IntQuickSortEqual) {
 TEST(QuickSort, IntInsSortEqual) {
     int arr[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     insertionSort(arr, arr, [](int a, int b) { return a < b; });
-    for (int i = 0; i < 9; i++) EXPECT_TRUE(arr[i], arr[i + 1]);
+    for (int i = 0; i < 9; i++) EXPECT_TRUE(arr[i]<= arr[i + 1]);
 }
 
 TEST(QuickSort, StrQuickSort) {
