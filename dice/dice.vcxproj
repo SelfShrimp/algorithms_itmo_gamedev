@@ -34,31 +34,13 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClCompile Include="ReadMe.cpp">
-      <DependentUpon>ReadMe.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </ClCompile>
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ReadMe.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ReadMe.h">
-      <DependentUpon>ReadMe.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="ReadMe.idl">
-      <DependentUpon>ReadMe.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Midl>
+    <Text Include="LinkToSheet.txt" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

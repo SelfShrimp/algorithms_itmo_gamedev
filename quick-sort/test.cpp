@@ -82,27 +82,6 @@ void sort(T* low, T* high, Compare comp)
     else quickSort(low, high, comp);
 }
 
-double PCFreq = 0.0;
-__int64 CounterStart = 0;
-
-void StartCounter()
-{
-    LARGE_INTEGER li;
-    if (!QueryPerformanceFrequency(&li))
-        std::cout << "QueryPerformanceFrequency failed!\n";
-
-    PCFreq = double(li.QuadPart) / 1000000.0;
-
-    QueryPerformanceCounter(&li);
-    CounterStart = li.QuadPart;
-}
-double GetCounter()
-{
-    LARGE_INTEGER li;
-    QueryPerformanceCounter(&li);
-    return double(li.QuadPart - CounterStart) / PCFreq;
-}
-
 
 TEST(QuickSort, IntQuickSort) {
     int arr[10] = { 10, 5, 9, 6, 3, 4, 1, 8, 2, 7 };
